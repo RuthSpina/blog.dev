@@ -23,3 +23,26 @@ Route::get('/portfolio', function()
 {
     return "this is my portfolio";
 });
+
+Route::get('rolldice', function($name, $day)
+{
+    if($day == 'Saturday' || $day =='Sunday'){
+        return View::make('test')->with('student', $name);
+    }else{
+        return Redirect::to('http://google.com');
+    }
+});
+
+Route::get('rolldice', function()
+{
+if($num =0) {
+ $min = $num[1];
+ $max = $num[2];
+} else {
+$min = 1;
+$max = 6;
+}
+$answer = mt_rand($min, $max); 
+return View::make('rolldice')->with('answer', $answer);
+});
+
