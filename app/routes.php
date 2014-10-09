@@ -12,9 +12,9 @@
 */
 
 Route::get('/', 'HomeController@showWelcome');
-
 Route::get('/resume', 'HomeController@showResume');
 Route::get('/portfolio', 'HomeController@showPortfolio');
+
 
 Route::get('rolldice', function($name, $day)
 {
@@ -44,3 +44,4 @@ Route::get('orm-test', function ()
 	var_dump($post);
 });
 
+Route::resource('posts', 'PostsController');

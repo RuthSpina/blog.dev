@@ -12,6 +12,10 @@
     text-align:center;
 }
 </style>
+  <link rel="stylesheet" href="css/animate.css">
+<script>
+   $('#quote').addClass('animated bounceOutLeft');
+   </script>
 @stop
 @section('content')
 <div class="jumbotron">
@@ -20,11 +24,12 @@
 </div>
 <div class="container">
                   <h3>My Story</h3>
-                  <div id="quote">
+                  
+                 <p>
                   "Hi, I'm Ruth. I'm a marketing professional and web developer-in-training driven by the ambition to converge creativity, data and technology. I am constantly growing through my experience in establishing what is necessary to survive in the evolving world of consumer engagement.
                   I have 5 years of experience in diverse industries including small to medium businesses, higher education, and insurance. Every position i've held has been enhanced by my drive to learn new systems and programs that will ensure my efficiency. The challenge i've enjoyed the most is approaching innovative ways to enrich the consumer experience through developing websites and marketing campaigns in a compelling way.
                   Lets work together. I am seeking an opportunity to add to the proliferation of your customer centric solutions. I look forward to collaborating or leading on projects that bring long term benefits to your consumers."
-              </div>
+              </p>
               </div>
               <!-- end: About Us -->
               <hr>
@@ -69,5 +74,6 @@
                 </div>
                 <!-- end: History -->
 <nav class="navbar navbar-inverse navbar-static-bottom" role="navigation">
+ 
 @stop
 
