@@ -1,26 +1,29 @@
-@extends('layouts.master')
-<style>
-#body{
-    padding-top:100px;
-    padding-right:100px;
-    padding-left:100px;
-}
-</style>
-}
+@extends('layouts.postsTemplate')
+
 @section('content')
-<div id="body">
-    {{$posts->links()}}
-
-<form action="{{{action('PostsController@store')}}}" method="POST">
-    <div class="form-group">
-        <label for="title">Title</label>
-        <input type="text" class="form-control" id="title" name="title" value="{{{ Input::old('title') }}}" placeholder="Title"> 
-
-   <label for="entry">Blog Entry</label>
-    <textarea class="form-control" rows="3" id="entry" name="entry" placeholder="Submit New Entry">{{{ Input::old('entry') }}}</textarea>
+<div class='col-md-8'>
+    <h2>Create a New Post</h2>
+    <hr>
+    {{ Form::open(['action' => 'PostsController@store', 'method' => 'POST', 'files' => true]) }}
+    <div class='form-group'>
+        {{ Form::label('title', 'Title:') }}
+        {{ Form::text('title', Input::old('title'), ['class' => 'form-control', 'id' => 'title']) }}
+        {{ $errors->first('title', '<br><div class="alert alert-info">:message</div>') }}
+    </div>
+    <div class='form-group'>
+        {{ Form::label('body', 'Body:') }}
+        {{ Form::textarea('body', Input::old('body'), ['class' => 'form-control', 'id' => 'body', 'rows' => '5']) }}
+       <!--  {{ $errors->first('body', '<br><div class="alert alert-info">:message</div>') }} -->
+    </div>
+    <div class='form-group'>
+        {{ Form::label('image', 'Image:') }}
+        {{ Form::file('image', ['id' => 'image']) }}
+        <p class="help-block">This is optional.</p>
+    </div>
+    <div class='form-group'>
+        {{ Form::submit('Submit', ['class' => 'btn btn-primary']) }}
+    </div>
+    {{ Form::close() }}
 </div>
-<button type="submit" class="btn btn-default">Submit</button>
-</form>
-
-</div>
+@stop
 

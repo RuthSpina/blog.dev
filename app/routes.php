@@ -34,7 +34,7 @@ if($num =0) {
 $min = 1;
 $max = 6;
 }
-$answer = mt_rand($min, $max); 
+$answer = mt_rand($min, $max);
 return View::make('rolldice')->with('answer', $answer);
 });
 

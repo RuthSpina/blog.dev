@@ -10,6 +10,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </head>
 <body>
+    <!-- heading -->
+    <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
@@ -54,20 +56,69 @@
                     @endif
                 </ul>
             </div>
-        </div>
+        </div> <!-- END NAV CONTAINER -->
     </nav>
-    
-    @yield('content')
 
     <div class='container'>
+        <div class='row'>
+
+            <!-- this shows a message after submitting a post -->
+            @if (Session::has('successMessage'))
+            <div class="alert alert-success">{{{ Session::get('successMessage') }}}</div>
+            @endif
+            @if (Session::has('errorMessage'))
+            <div class="alert alert-danger">{{{ Session::get('errorMessage') }}}</div>
+            @endif
+
+            <!-- PAGE MAIN CONTENT -->
+            @yield('content')
+
+            <!-- Blog Sidebar Widgets Column -->
+            <div class="col-md-4">
+
+                <!-- Blog Search Well -->
+                <div class="well">
+                    <h4>Blog Search</h4>
+                    <div class="input-group">
+                        <input type="text" class="form-control">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                    </div> <!-- /.input-group -->
+                </div>
+
+                <!-- Blog Categories Well -->
+                <div class="well">
+                    <h4>Blog Categories</h4>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <ul class="list-unstyled">
+                                <li><a href="#">Category Name</a></li>
+                                <li><a href="#">Category Name</a></li>
+                                <li><a href="#">Category Name</a></li>
+                                <li><a href="#">Category Name</a></li>
+                            </ul>
+                        </div> <!-- /.col-lg-6 -->
+                        <div class="col-lg-6">
+                            <ul class="list-unstyled">
+                                <li><a href="#">Category Name</a></li>
+                                <li><a href="#">Category Name</a></li>
+                                <li><a href="#">Category Name</a></li>
+                                <li><a href="#">Category Name</a></li>
+                            </ul>
+                        </div> <!-- /.col-lg-6 -->
+                    </div> <!-- /.row -->
+                </div>
         <hr>
         <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Cory &copy; My Website 2014</p>
-                </div>
-            </div>
+            </div> <!-- END FOOTER ROW -->
         </footer>
-    </div>
+
+    </div> <!-- END CONTAINER -->
+
+    @yield('bottom-script')
+
 </body>
 </html>
